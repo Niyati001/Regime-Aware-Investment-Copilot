@@ -8,10 +8,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from dotenv import load_dotenv
-load_dotenv()
-print("API KEY =", os.getenv("OPENAI_API_KEY"))
-
 try:
     import plotly.express as px
     import plotly.graph_objects as go
@@ -375,7 +371,7 @@ fred_macro = load_fred_macro()
 macro_signal = macro_signal_from_fred(fred_macro)
 
 st.title("Regime-Aware Investment Research Copilot")
-st.caption("A desk-style multi-agent POC: HMM regimes, MoE signals, supervisor conflict resolution, macro context, and risk sizing")
+st.caption("A desk-style quantitative research system combining HMM regimes, Mixture of Experts signals, macro context, supervisor conflict resolution, and risk-aware exposure sizing.")
 
 with st.sidebar:
     st.header("Control Panel")
