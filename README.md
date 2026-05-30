@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 Regime-Aware Investment Research Copilot
+# Regime-Aware Investment Research Copilot
 
 ### A desk-style multi-agent financial ML system that detects hidden market regimes, routes predictions through specialized expert classifiers, and resolves conflicting signals — inspired by how quantitative research desks combine regime, risk, macro, and forecasting signals.
 
@@ -14,7 +14,7 @@
 <br/>
 
 <!-- SCREENSHOT: Full dashboard overview — paste your Desk View screenshot here -->
-> 📸 _Place your **Desk View** screenshot here_
+> ![Dashboard Overview](assets/dashboard_overview.png)
 
 </div>
 
@@ -84,28 +84,28 @@ Regimes are not noise — they are structurally stable. This persistence is what
          ┌──────────────────────────┼─────────────────────────┐
          │                          │                          │
 ┌────────▼────────┐      ┌──────────▼──────────┐    ┌────────▼────────┐
-│   QUANT AGENT   │      │     RISK AGENT       │    │   MACRO AGENT   │
-│ Soft-Gated MoE  │      │ Vol-based sizing     │    │ FRED: FEDFUNDS  │
-│ RF/XGB/LightGBM │      │ Regime scalar        │    │ T10Y2Y, HY Sprd │
-│ Up probability  │      │ VaR · Drawdown       │    │ India VIX / RBI │
+│   QUANT AGENT   │      │     RISK AGENT      │    │   MACRO AGENT   │
+│ Soft-Gated MoE  │      │ Vol-based sizing    │    │ FRED: FEDFUNDS  │
+│ RF/XGB/LightGBM │      │ Regime scalar       │    │ T10Y2Y, HY Sprd │
+│ Up probability  │      │ VaR · Drawdown      │    │ India VIX / RBI │
 └────────┬────────┘      └──────────┬──────────┘    └────────┬────────┘
-         │                          │                          │
-         └──────────────────────────▼─────────────────────────┘
+         │                          │                        │
+         └──────────────────────────▼────────────────────────┘
                                     │
-                     ┌──────────────▼───────────────┐
-                     │       SUPERVISOR AGENT        │
+                     ┌──────────────▼─────────────────┐
+                     │       SUPERVISOR AGENT         │
                      │  Explicit conflict resolution  │
                      │  Bear + Bullish → 40% exposure │
                      │  Regime-conditional override   │
-                     └──────────────┬───────────────┘
+                     └──────────────┬─────────────────┘
                                     │
          ┌──────────────────────────┼─────────────────────────┐
-         │                          │                          │
-┌────────▼────────┐      ┌──────────▼──────────┐    ┌────────▼────────┐
-│ HIST. ANALOGS   │      │   RESEARCH NOTE      │    │ MODEL DIAGNSTCS │
-│ Cosine simil.   │      │ Structured synthesis │    │ Walk-fwd tracker│
-│ Fwd return dist │      │ from agent inputs    │    │ Model leaderboard│
-└─────────────────┘      └─────────────────────┘    └─────────────────┘
+         │                          │                         │
+┌────────▼─────────┐      ┌──────────▼──────────┐    ┌────────▼─────────┐
+│ HIST. ANALOGS    │      │   RESEARCH NOTE     │    │ MODEL DIAGNOSTICS│
+│ Cosine similarity│      │ Structured synthesis│    │ Walk-fwd tracker │
+│ Fwd return dist  │      │ from agent inputs   │    │ Model leaderboard│
+└──────────────────┘      └─────────────────────┘    └──────────────────┘
 ```
 
 ---
@@ -115,7 +115,7 @@ Regimes are not noise — they are structurally stable. This persistence is what
 ### Desk View — Live Agent Status + Conflict Resolution
 
 <!-- SCREENSHOT: Desk View tab — showing Bear regime, Bullish quant, 40% supervisor exposure -->
-> 📸 _Place your **Desk View** screenshot here — showing the conflict resolution section_
+![Dashboard Overview](assets/dashboard_overview.png)
 
 The headline feature. When the Regime Agent and Quant Agent disagree — for example, HMM detects Bear with 99.9% confidence while the MoE classifier gives a Bullish signal — the Supervisor Agent doesn't average them. It applies explicit logic:
 
@@ -135,7 +135,7 @@ Every decision is shown with its reasoning. No black boxes.
 ### Research Copilot — Structured Investment Note
 
 <!-- SCREENSHOT: Research Copilot tab — showing the investment note + structured JSON inputs -->
-> 📸 _Place your **Research Copilot** screenshot here_
+![Research Copilot](assets/research_copilot.png)
 
 All agent outputs are assembled into a structured JSON context block, then synthesized into a 3-paragraph investment note that:
 - States the regime and what HMM confidence implies about market structure
@@ -148,7 +148,7 @@ All agent outputs are assembled into a structured JSON context block, then synth
 ### Risk Lab — Portfolio Analytics
 
 <!-- SCREENSHOT: Risk Lab tab — showing equity curve + cost sensitivity chart -->
-> 📸 _Place your **Risk Lab** screenshot here_
+![Risk Lab](assets/risk_lab.png)
 
 - Supervisor strategy vs buy-and-hold equity curve (walk-forward window)
 - Portfolio cost sensitivity: Sharpe vs transaction costs from 0–20 bps
@@ -159,7 +159,7 @@ All agent outputs are assembled into a structured JSON context block, then synth
 ### Historical Analogs — Nearest Neighbor Regime Retrieval
 
 <!-- SCREENSHOT: Historical Analogs tab — showing the analog table with forward returns -->
-> 📸 _Place your **Historical Analogs** screenshot here_
+![Historical Analogs](assets/historical_analogs.png)
 
 Retrieves the closest historical market states using cosine similarity over:
 - Regime label
@@ -175,7 +175,8 @@ Shows forward 10D and 30D returns from those analog periods, with median recover
 ### Model Diagnostics — Full Leaderboard + Accuracy Breakdown
 
 <!-- SCREENSHOT: Model Diagnostics tab — showing leaderboard + accuracy by regime chart -->
-> 📸 _Place your **Model Diagnostics** screenshot here_
+![Model Diagnostics](assets/model_diag.png)
+![Model Diagnostics](assets/model_diag2.png)
 
 | Model | Routing | Sharpe | Max DD | Accuracy |
 |---|---|---|---|---|
@@ -254,7 +255,7 @@ streamlit run app.py
 
 **Run notebooks:**
 ```bash
-python -m ipykernel install --user --name market-regime --display-name "Python 3.11 Market Regime"
+python -m ipykernel install --user --name market-regime --display-name "Python 3.11 Market Regime."
 jupyter lab
 ```
 
