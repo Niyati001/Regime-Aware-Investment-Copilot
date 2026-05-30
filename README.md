@@ -72,19 +72,19 @@ Regimes are not noise — they are structurally stable. This persistence is what
 ## System Architecture
 
 ```
-                     ┌──────────────────────────────┐
+                     ┌───────────────────────────────┐
                      │         CONTROL PANEL         │
-                     │  Asset · Cost · Signal · Shock │
-                     └──────────────┬───────────────┘
+                     │  Asset · Cost · Signal · Shock│
+                     └──────────────┬────────────────┘
                                     │
-                     ┌──────────────▼───────────────┐
+                     ┌──────────────▼────────────────┐
                      │         REGIME AGENT          │
                      │   HMM → Bull / Bear / Crisis  │
-                     │   Posterior state probability  │
-                     └──────────────┬───────────────┘
+                     │   Posterior state probability │
+                     └──────────────┬────────────────┘
                                     │
          ┌──────────────────────────┼─────────────────────────┐
-         │                          │                          │
+         │                          │                         │
 ┌────────▼────────┐      ┌──────────▼──────────┐    ┌────────▼────────┐
 │   QUANT AGENT   │      │     RISK AGENT      │    │   MACRO AGENT   │
 │ Soft-Gated MoE  │      │ Vol-based sizing    │    │ FRED: FEDFUNDS  │
